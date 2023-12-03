@@ -35,7 +35,7 @@ dividends = [(1, 2016, 0),
        (1, 2023, 18.83)]
 
 # Insert data into table
-cur.execute("INSERT INTO stock(name, ticker) VALUES ('Ленэнерого П', 'LSNGP')")
+cur.execute("INSERT INTO stock(name, ticker) VALUES ('L p', 'LSNGP')")
 cur.executemany('INSERT INTO dividends VALUES (?,?,?);', dividends)
 
 

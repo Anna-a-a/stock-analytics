@@ -14,3 +14,5 @@ localhost/copmany/1
 "name" : "Газпром",
 "stats" : [{"year": 2023},{"year": 2023}]
 }
+
+pip install fastapi uvicorn
