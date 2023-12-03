@@ -1,7 +1,7 @@
 import sqlite3
 
 # Connect to SQLite database
-con = sqlite3.connect("stock.db")
+con = sqlite3.connect("utils/db_functions/stock.db")
 
 # Create a cursor object
 cur = con.cursor()
@@ -25,8 +25,21 @@ CREATE TABLE dividends (
 );
 """)
 
+dividends = [(1, 2016, 0),
+       (1, 2017, 8.11),
+       (1, 2018, 13.47),
+       (1, 2019, 11.14),
+       (1, 2020, 13.62),
+       (1, 2021, 15.17),
+       (1, 2022, 21.67),
+       (1, 2023, 18.83)]
+
+# Insert data into table
+cur.execute("INSERT INTO stock(name, ticker) VALUES ('Ленэнерого П', 'LSNGP')")
+cur.executemany('INSERT INTO dividends VALUES (?,?,?);', dividends)
 
 
 
 # Close the connection
+con.commit()
 con.close()
