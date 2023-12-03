@@ -1,5 +1,5 @@
-init script for bd
-insert some companies
++ init script for bd
++ insert some companies
 selects from bd all stuff for one company
 commit init script
 http endpoint data by company id

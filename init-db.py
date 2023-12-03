@@ -1,29 +1,31 @@
 import sqlite3
 
 # Connect to SQLite database
-con = sqlite3.connect("tutorial1.db")
+con = sqlite3.connect("stock.db")
 
 # Create a cursor object
 cur = con.cursor()
 
 # Create a table
-cur.execute("""CREATE TABLE companies (
-    company_id INTEGER PRIMARY KEY AUTOINCREMENT
+cur.execute("""CREATE TABLE stock (
+    stock_id INTEGER PRIMARY KEY AUTOINCREMENT
                         UNIQUE
                         NOT NULL,
-    company_name   TEXT    NOT NULL
+    name   TEXT    NOT NULL,
+    ticker   TEXT    NOT NULL
 );
 """)
-cur.execute("""CREATE TABLE data (
-    company_id INTEGER PRIMARY KEY AUTOINCREMENT
-                        UNIQUE
-                        NOT NULL,
-    year   TEXT    NOT NULL,
-    quarter     TEXT    NOT NULL,
-    profit       FLOAT,
-    debt   FLOAT
+cur.execute("""
+CREATE TABLE dividends (
+  stock_id    INTEGER NOT NULL,
+  period_year INTEGER NOT NULL,
+  amount_per_stock   NUMERIC(38, 2)  NOT NULL,
+  FOREIGN KEY (stock_id)
+     REFERENCES stock (stock_id)
 );
 """)
+
+
 
 
 # Close the connection
