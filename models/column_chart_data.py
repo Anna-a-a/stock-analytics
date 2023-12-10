@@ -1,3 +1,7 @@
+import json
+import pickle
+
+
 class ColumnChart:
     def __init__(self, label, y):
         self.label = label
