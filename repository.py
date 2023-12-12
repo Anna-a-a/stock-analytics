@@ -31,10 +31,24 @@ def getDividends(ticker):
     return list_of_charts
 
 
-def getReportDataByQ(ticker, q):
+def getRevenueByQ(ticker, q):
     connect = getConnect()
     cur = connect.execute(
         'SELECT year, revenue FROM report_data INNER JOIN Stock ON report_data.stock_id = stock.Stock_id WHERE ticker = ? AND q = ?', (ticker, q))
+
+    result = cur.fetchall()
+    reportData = []
+    for i in range(len(result)):
+        reportData.append(ColumnChart(result[i][0], result[i][1]))
+
+    connect.close()
+    return reportData
+
+
+def getNetIncomeByQ(ticker, q):
+    connect = getConnect()
+    cur = connect.execute(
+        'SELECT year, net_income FROM report_data INNER JOIN Stock ON report_data.stock_id = stock.Stock_id WHERE ticker = ? AND q = ?', (ticker, q))
 
     result = cur.fetchall()
     reportData = []

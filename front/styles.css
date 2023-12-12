@@ -1,0 +1,40 @@
+body {
+    font-family: Tahoma, Verdana, sans-serif;
+}
+#head-title {
+    text-align: center;
+}
+
+#summary-title {
+    text-align: center;
+}
+
+.value {
+    color: #5592ad;
+    margin-right: 20px;
+}
+
+table {
+    width: 100%;
+}
+.chart-container {
+      height: 400px;
+}
+
+.main-text-info {
+      margin-left: 20px;
+      font-size : 30px;
+}
+
+.text-info {
+      margin-left: 60px;
+      font-size : 30px;
+}
+
+td {
+    -webkit-box-shadow: 0px 0px 8px 0px rgba(34, 60, 80, 0.2);
+    -moz-box-shadow: 0px 0px 8px 0px rgba(34, 60, 80, 0.2);
+    box-shadow: 0px 0px 8px 0px rgba(34, 60, 80, 0.2);
+    padding: 10px;
+    width: 50%;
+}

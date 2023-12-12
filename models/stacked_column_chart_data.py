@@ -1,6 +1,3 @@
-import pickle
-
-
 class StackedColumnChart:
     def __init__(self, q1, q2, q3, q4):
         self.q1 = q1
