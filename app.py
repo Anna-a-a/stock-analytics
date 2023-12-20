@@ -17,15 +17,15 @@ def stocks(ticker):
     revenueQ3 = getRevenueByQ(ticker, 3)
     revenueQ4 = getRevenueByQ(ticker, 4)
 
-    netIncomQ1 = getNetIncomeByQ(ticker, 1)
-    netIncomQ2 = getNetIncomeByQ(ticker, 2)
-    netIncomQ3 = getNetIncomeByQ(ticker, 3)
-    netIncomQ4 = getNetIncomeByQ(ticker, 4)
+    netIncomeQ1 = getNetIncomeByQ(ticker, 1)
+    netIncomeQ2 = getNetIncomeByQ(ticker, 2)
+    netIncomeQ3 = getNetIncomeByQ(ticker, 3)
+    netIncomeQ4 = getNetIncomeByQ(ticker, 4)
 
 
 
     stock = Stock(stockDb[1], stockDb[2], dividends, StackedColumnChart(revenueQ1, revenueQ2, revenueQ3, revenueQ4),
-                  StackedColumnChart(netIncomQ1, netIncomQ2, netIncomQ3, netIncomQ4))
+                  StackedColumnChart(netIncomeQ1, netIncomeQ2, netIncomeQ3, netIncomeQ4), stockDb[3], stockDb[4], stockDb[5], stockDb[6])
     return jsonify(stock.serialize())
     #return jsonify(reportData)
 

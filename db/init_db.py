@@ -12,7 +12,11 @@ cur.execute("""CREATE TABLE stock (
                         UNIQUE
                         NOT NULL,
     name   TEXT    NOT NULL,
-    ticker   TEXT    NOT NULL
+    ticker   TEXT    NOT NULL,
+    price   FLOAT NOT NULL,
+    dividends_percent_average FLOAT NOT NULL,
+    revenue_percent_average FLOAT NOT NULL,
+    net_income_percent_average FLOAT NOT NULL
 );
 """)
 cur.execute("""
@@ -48,7 +52,7 @@ dividends = [(1, 2016, 0),
 
 # Insert data into table
 
-cur.execute("INSERT INTO stock(name, ticker) VALUES ('L p', 'LSNGP')")
+cur.execute("INSERT INTO stock(name, ticker, price, dividends_percent_average, revenue_percent_average, net_income_percent_average) VALUES ('LSNG_p', 'LSNGP', '189.55', '13.75', '2.01', '14.53')")
 cur.executemany('INSERT INTO dividends VALUES (?,?,?);', dividends)
 
 report_data = [(1, 2019, 1, 21.1, 4.3),

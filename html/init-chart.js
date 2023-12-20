@@ -6,14 +6,11 @@ const ticker = urlParams.get('ticker')
 var stock = httpGet("/api/stock/" + ticker);
 document.getElementById('price').innerHTML = stock.price;
 document.getElementById('head-title').innerHTML = stock.name + " - " + stock.ticker;
-document.getElementById('dividends-percent-forecast-yy').innerHTML = stock.netIncomePercentForecast + "%";
-document.getElementById('revenue-percent-forecast').innerHTML = stock.revenuePercentForecast + "%";
-document.getElementById('netIncome-percent-forecast').innerHTML = stock.netIncomePercentForecast + "%";
-document.getElementById('dividends-percent-forecast').innerHTML = stock.dividendPercentToCurrentPrice + "%";
 
-document.getElementById('dividends-percent-average').innerHTML = stock.dividendAveragePercentGrowth + "%";
-document.getElementById('revenue-percent-average').innerHTML = stock.revenueAveragePercentGrowth + "%";
-document.getElementById('netIncome-percent-average').innerHTML = stock.netIncomeAveragePercentGrowth + "%";
+
+document.getElementById('dividends-percent-average').innerHTML = stock.dividends_percent_average + "%";
+document.getElementById('revenue-percent-average').innerHTML = stock.revenue_percent_average + "%";
+document.getElementById('netIncome-percent-average').innerHTML = stock.net_income_percent_average + "%";
 
 
 var dividendsChartOptions = {
@@ -51,7 +48,7 @@ var revenueChart = new CanvasJS.Chart("revenue-chart", {
                  indexLabelPlacement: "inside",
                  indexLabelOrientation: "horizontal",
                  type: "stackedColumn",
-                 dataPoints: stock.revenueDataStackedColumnChartData.q1
+                 dataPoints: stock.revenueChartData.q1
              },
              {
                  type: "column",
@@ -59,7 +56,7 @@ var revenueChart = new CanvasJS.Chart("revenue-chart", {
                  indexLabelPlacement: "inside",
                  indexLabelOrientation: "horizontal",
                  type: "stackedColumn",
-                 dataPoints: stock.revenueDataStackedColumnChartData.q2
+                 dataPoints: stock.revenueChartData.q2
              },
              {
                  type: "column",
@@ -67,7 +64,7 @@ var revenueChart = new CanvasJS.Chart("revenue-chart", {
                  indexLabelPlacement: "inside",
                  indexLabelOrientation: "horizontal",
                  type: "stackedColumn",
-                 dataPoints: stock.revenueDataStackedColumnChartData.q3
+                 dataPoints: stock.revenueChartData.q3
              },
              {
                  type: "column",
@@ -75,7 +72,7 @@ var revenueChart = new CanvasJS.Chart("revenue-chart", {
                  indexLabelPlacement: "inside",
                  indexLabelOrientation: "horizontal",
                  type: "stackedColumn",
-                 dataPoints: stock.revenueDataStackedColumnChartData.q4
+                 dataPoints: stock.revenueChartData.q4
              }
              ]
    });
@@ -94,7 +91,7 @@ var netIncomeChart = new CanvasJS.Chart("netIncome-chart", {
                  indexLabelPlacement: "inside",
                  indexLabelOrientation: "horizontal",
                  type: "stackedColumn",
-                 dataPoints: stock.netIncomeDataStackedColumnChartData.q1
+                 dataPoints: stock.netIncomeChartData.q1
              },
              {
                  type: "column",
@@ -102,7 +99,7 @@ var netIncomeChart = new CanvasJS.Chart("netIncome-chart", {
                  indexLabelPlacement: "inside",
                  indexLabelOrientation: "horizontal",
                  type: "stackedColumn",
-                 dataPoints: stock.netIncomeDataStackedColumnChartData.q2
+                 dataPoints: stock.netIncomeChartData.q2
              },
              {
                  type: "column",
@@ -110,7 +107,7 @@ var netIncomeChart = new CanvasJS.Chart("netIncome-chart", {
                  indexLabelPlacement: "inside",
                  indexLabelOrientation: "horizontal",
                  type: "stackedColumn",
-                 dataPoints: stock.netIncomeDataStackedColumnChartData.q3
+                 dataPoints: stock.netIncomeChartData.q3
              },
              {
                  type: "column",
@@ -118,7 +115,7 @@ var netIncomeChart = new CanvasJS.Chart("netIncome-chart", {
                  indexLabelPlacement: "inside",
                  indexLabelOrientation: "horizontal",
                  type: "stackedColumn",
-                 dataPoints: stock.netIncomeDataStackedColumnChartData.q4
+                 dataPoints: stock.netIncomeChartData.q4
              }
              ]
    });
